@@ -11,6 +11,9 @@ import org.koin.dsl.module
 
 object KeyManagementFactory {
 
+    /**
+     * Initialize the KeyManagement.
+     */
     fun init(
         authorizationCertificateProviderKey: String,
         authorizationCertificateProviderUrl: String
