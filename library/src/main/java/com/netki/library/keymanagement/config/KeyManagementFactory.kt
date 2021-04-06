@@ -11,7 +11,7 @@ import org.koin.dsl.module
 
 object KeyManagementFactory {
 
-    fun initialize(
+    fun init(
         authorizationCertificateProviderKey: String,
         authorizationCertificateProviderUrl: String
     ) {
@@ -27,6 +27,7 @@ object KeyManagementFactory {
 
             single { KeyManagementNetki(get()) as KeyManagement }
         }
+
         startKoin {
             modules(keyManagementModule)
         }

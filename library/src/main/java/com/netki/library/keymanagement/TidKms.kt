@@ -5,6 +5,7 @@ import com.netki.library.keymanagement.config.KeyManagementFactory
 import com.netki.library.keymanagement.main.KeyManagement
 import com.netki.model.AttestationCertificate
 import com.netki.model.AttestationInformation
+import org.koin.core.component.KoinApiExtension
 import org.koin.core.component.KoinComponent
 import org.koin.core.component.inject
 import java.security.PrivateKey
@@ -13,25 +14,21 @@ import java.security.cert.X509Certificate
 /**
  * Access the key management system.
  */
-class TidKms : KoinComponent {
+object TidKms : KoinComponent {
 
-    companion object {
-        /**
-         * Method to get an instance of this class.
-         * All the parameters are optional depending the functions that want to be used.
-         *
-         * @param authorizationCertificateProviderKey to authorize the connection to the certificate provider.
-         * @param authorizationCertificateProviderUrl to connect to the certificate provider.
-         * @return instance of TidKms.
-         */
-        @JvmStatic
-        @JvmOverloads
-        fun initialize(
-            authorizationCertificateProviderKey: String,
-            authorizationCertificateProviderUrl: String = ""
-        ) {
-            KeyManagementFactory.initialize(authorizationCertificateProviderKey, authorizationCertificateProviderUrl)
-        }
+    /**
+     * Method to initialize the KeyManagement system.
+     * All the parameters are optional depending the functions that want to be used.
+     *
+     * @param authorizationCertificateProviderKey to authorize the connection to the certificate provider.
+     * @param authorizationCertificateProviderUrl to connect to the certificate provider.
+     */
+    @JvmOverloads
+    fun init(
+        authorizationCertificateProviderKey: String = "",
+        authorizationCertificateProviderUrl: String = ""
+    ) {
+        KeyManagementFactory.init(authorizationCertificateProviderKey, authorizationCertificateProviderUrl)
     }
 
     private val keyManagement by inject<KeyManagement>()

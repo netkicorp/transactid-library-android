@@ -37,6 +37,21 @@ android {
 
 dependencies {
     implementation project(":library")
+    implementation "com.netki:transactid-core:$transacid_core_version"
+    implementation("org.bouncycastle:bcprov-jdk15on") {
+        version {
+            strictly "$bouncycastle_version"
+        }
+    }
+    implementation("org.bouncycastle:bcpkix-jdk15on") {
+        version {
+            strictly "$bouncycastle_version"
+        }
+    }
+
+
+    implementation "org.koin:koin-core:$koin_version"
+
     implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
     implementation "androidx.core:core-ktx:$androidx_core_version"
     implementation "androidx.appcompat:appcompat:$androidx_app_compat_version"
