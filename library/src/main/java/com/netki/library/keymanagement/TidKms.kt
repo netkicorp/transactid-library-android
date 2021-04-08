@@ -23,6 +23,7 @@ object TidKms : KoinComponent {
      * @param authorizationCertificateProviderKey to authorize the connection to the certificate provider.
      * @param authorizationCertificateProviderUrl to connect to the certificate provider.
      */
+    @JvmStatic
     @JvmOverloads
     fun init(
         authorizationCertificateProviderKey: String = "",

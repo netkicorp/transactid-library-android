@@ -9,10 +9,16 @@ import com.netki.library.keymanagement.service.impl.KeyManagementNetkiService
 import org.koin.core.context.startKoin
 import org.koin.dsl.module
 
+/**
+ * Factory to initialize KeyManagement dependencies.
+ */
 object KeyManagementFactory {
 
     /**
-     * Initialize the KeyManagement.
+     * Initialize the KeyManagement dependencies.
+     *
+     * @param authorizationCertificateProviderKey to authorize the connection to the certificate provider.
+     * @param authorizationCertificateProviderUrl to connect to the certificate provider.
      */
     fun init(
         authorizationCertificateProviderKey: String,
