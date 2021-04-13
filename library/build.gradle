@@ -28,7 +28,7 @@ android {
         targetCompatibility JavaVersion.VERSION_1_8
     }
     kotlinOptions {
-        jvmTarget = '1.8'
+        jvmTarget = JavaVersion.VERSION_1_8.toString()
     }
     packagingOptions {
         exclude("META-INF/ktor*.kotlin_module")
@@ -39,16 +39,9 @@ dependencies {
     implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
 
     implementation "com.netki:transactid-core:$transacid_core_version"
-    implementation("org.bouncycastle:bcprov-jdk15on") {
-        version {
-            strictly "$bouncycastle_version"
-        }
-    }
-    implementation("org.bouncycastle:bcpkix-jdk15on") {
-        version {
-            strictly "$bouncycastle_version"
-        }
-    }
+
+    implementation "com.madgag.spongycastle:core:$spongycastle_version"
+    implementation "com.madgag.spongycastle:prov:$spongycastle_version"
 
     implementation "com.google.android.material:material:$android_material_version"
 
