@@ -6,7 +6,6 @@ import com.netki.library.bip75.service.Bip75Service
 import com.netki.library.bip75.service.impl.Bip75ServiceNetki
 import com.netki.message.config.MessageFactory
 import com.netki.message.main.Message
-import org.bouncycastle.jce.provider.BouncyCastleProvider
 import org.koin.core.context.startKoin
 import org.koin.dsl.module
 import java.security.Security
@@ -25,8 +24,6 @@ internal object Bip75Factory {
     fun init(
         authorizationKey: String? = null
     ) {
-        Security.addProvider(BouncyCastleProvider())
-
         val bip75Module = module {
             single {
                 MessageFactory.getInstance(authorizationKey) as Message

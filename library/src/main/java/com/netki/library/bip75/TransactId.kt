@@ -6,6 +6,8 @@ import com.netki.exceptions.*
 import com.netki.model.*
 import org.koin.core.component.KoinComponent
 import org.koin.core.component.inject
+import org.spongycastle.jce.provider.BouncyCastleProvider
+import java.security.Security
 
 /**
  * Generate Bip75 protocol messages.
@@ -27,6 +29,7 @@ object TransactId : KoinComponent {
     fun init(
         authorizationKey: String? = ""
     ) {
+        Security.addProvider(BouncyCastleProvider())
         Bip75Factory.init(authorizationKey)
     }
 
