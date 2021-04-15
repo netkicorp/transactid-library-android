@@ -17,13 +17,11 @@ internal object Bip75Factory {
 
     /**
      * Initialize Bip75 dependencies.
+     *
      * @param authorizationKey pass this parameter if address information will be required.
-     * @return Bip75 instance.
      */
     @JvmOverloads
-    fun init(
-        authorizationKey: String? = null
-    ) {
+    fun init(authorizationKey: String? = null) {
         val bip75Module = module {
             single {
                 MessageFactory.getInstance(authorizationKey) as Message

@@ -17,18 +17,15 @@ import java.security.Security
 object TransactId : KoinComponent {
 
     /**
-     * Method to get an instance of this class.
+     * Method initialize the TransactId library.
      * The ability to fetch detailed information of the addresses is optional.
      *
      * This should be accessible and have with read permissions for the app that is running the library.
      * @param authorizationKey Key to connect fetch detailed information of addresses.
-     * @return instance of TransactId.
      */
     @JvmStatic
     @JvmOverloads
-    fun init(
-        authorizationKey: String? = ""
-    ) {
+    fun init(authorizationKey: String? = "") {
         Security.addProvider(BouncyCastleProvider())
         Bip75Factory.init(authorizationKey)
     }
