@@ -1,5 +1,6 @@
 package com.netki.library.keymanagement
 
+import android.content.Context
 import com.netki.exceptions.*
 import com.netki.library.keymanagement.config.KeyManagementFactory
 import com.netki.library.keymanagement.main.KeyManagement
@@ -22,14 +23,23 @@ object TidKms : KoinComponent {
      *
      * @param authorizationCertificateProviderKey to authorize the connection to the certificate provider.
      * @param authorizationCertificateProviderUrl to connect to the certificate provider.
+     * @param masterKeyAlias to access the local MasterKey, if is the first time using this library the MasterKey will be initialized with this given alias.
+     * @param applicationContext used to store and fetch key pairs.
      */
     @JvmStatic
     @JvmOverloads
     fun init(
         authorizationCertificateProviderKey: String = "",
-        authorizationCertificateProviderUrl: String = ""
+        authorizationCertificateProviderUrl: String = "",
+        masterKeyAlias: String? = null,
+        applicationContext: Context? = null
     ) {
-        KeyManagementFactory.init(authorizationCertificateProviderKey, authorizationCertificateProviderUrl)
+        KeyManagementFactory.init(
+            authorizationCertificateProviderKey,
+            authorizationCertificateProviderUrl,
+            masterKeyAlias,
+            applicationContext
+        )
     }
 
     private val keyManagement by inject<KeyManagement>()
