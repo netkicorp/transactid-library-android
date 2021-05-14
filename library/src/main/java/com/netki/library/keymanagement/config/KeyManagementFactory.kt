@@ -11,6 +11,7 @@ import com.netki.library.keymanagement.service.KeyManagementService
 import com.netki.library.keymanagement.service.impl.KeyManagementNetkiService
 import org.koin.core.context.startKoin
 import org.koin.dsl.module
+import java.security.KeyStore
 
 /**
  * Factory to initialize KeyManagement dependencies.
@@ -39,7 +40,11 @@ object KeyManagementFactory {
                 ) as KeyGeneration
             }
 
-            single { KeyStoreRepo(masterKeyAlias, applicationContext) as KeyManagementRepo }
+            single {
+                KeyStore.getInstance("AndroidKeyStore").apply {
+                    load(null)
+                }
+            }
 
             single { KeyManagementNetkiService(get(), get()) as KeyManagementService }
 

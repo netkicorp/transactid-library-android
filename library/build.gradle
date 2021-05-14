@@ -40,10 +40,10 @@ dependencies {
 
     implementation "com.netki:transactid-core:$transacid_core_version"
 
-    implementation "com.madgag.spongycastle:core:$spongycastle_version"
-    implementation "com.madgag.spongycastle:prov:$spongycastle_version"
-
     implementation "com.google.android.material:material:$android_material_version"
+
+    implementation "org.bouncycastle:bcprov-jdk15on:$bouncyCastleVersion"
+    implementation "org.bouncycastle:bcpkix-jdk15on:$bouncyCastleVersion"
 
     implementation "androidx.core:core-ktx:$androidx_core_version"
     implementation "androidx.appcompat:appcompat:$androidx_app_compat_version"
