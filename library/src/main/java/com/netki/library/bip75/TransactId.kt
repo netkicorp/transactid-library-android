@@ -4,9 +4,9 @@ import com.netki.library.bip75.config.Bip75Factory
 import com.netki.bip75.main.Bip75
 import com.netki.exceptions.*
 import com.netki.model.*
+import org.bouncycastle.jce.provider.BouncyCastleProvider
 import org.koin.core.component.KoinComponent
 import org.koin.core.component.inject
-import org.spongycastle.jce.provider.BouncyCastleProvider
 import java.security.Security
 
 /**
